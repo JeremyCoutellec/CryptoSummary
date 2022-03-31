@@ -2,11 +2,13 @@ const router = require('express').Router();
 const User = require('../models/userModel');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const { getTokenFromBearer } = require('../utils/auth');
 
 // Register
 router.post('/', async (req, res) => {
     try{
-        const {email, password, passwordVerify} = req.body;
+        const {password, passwordVerify} = req.body;
+        const email = req.body.email?.toLowerCase();
 
         // Validation 
         if(!email || !password || !passwordVerify)
@@ -45,8 +47,9 @@ router.post('/', async (req, res) => {
             user: savedUser?._id
         }, process.env.JWT_SECRET);
         
-        res.cookie("token", token, {
-            httpOnly: true,
+        res.json({
+            token,
+            user: savedUser
         }).send();
     } catch(err) {
         console.error(err);
@@ -57,7 +60,8 @@ router.post('/', async (req, res) => {
 // Log in
 router.post('/login', async(req, res) => {
     try{
-        const {email, password} = req.body;
+        const {password} = req.body;
+        const email = req.body.email?.toLowerCase();
 
         // Validation 
         if(!email || !password)
@@ -85,12 +89,27 @@ router.post('/login', async(req, res) => {
             user: existingUser?._id
         }, process.env.JWT_SECRET);
         
-        res.cookie("token", token, {
-            httpOnly: true,
+        res.json({
+            token,
+            user: existingUser
         }).send();
     } catch(err) {
         console.error(err);
         res.status(500).send();
+    }
+})
+
+router.get('/loggedIn', (req, res) => {
+    try {
+        const token = getTokenFromBearer(req);
+        req.token = token;
+        if(!token) return res.json(false);
+
+        jwt.verify(token, process.env.JWT_SECRET);
+        
+        res.send(true);
+    }catch(err){
+        res.json(false)
     }
 })
 
