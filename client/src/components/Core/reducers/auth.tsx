@@ -37,7 +37,7 @@ export default function (state = initialState, action) {
             localStorage.setItem('email', payload.email);
             return {
                 ...state,
-                rememberMe: payload.rememberMe,
+                rememberMe: !!payload.rememberMe,
                 email: payload.email,
                 user: {
                     email: payload.email,

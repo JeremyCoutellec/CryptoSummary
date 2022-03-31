@@ -2,13 +2,11 @@ import api from '../../../utils/api';
 import { setAlert } from './alert';
 import { LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT, SET_LANG } from './types';
 
-const { REACT_APP_WEB_API_PATH } = process.env;
-
 // LOGIN USER
 export const login = (email, password, rememberMe, history) => async (dispatch) => {
     const body = JSON.stringify({ email, password });
     try {
-        const res = await api.post(REACT_APP_WEB_API_PATH + '/auth/login', body);
+        const res = await api.post('/auth/login', body);
         dispatch({
             type: LOGIN_SUCCESS,
             payload: {
@@ -32,7 +30,7 @@ export const login = (email, password, rememberMe, history) => async (dispatch) 
 export const register = (email, password, passwordVerify, history) => async (dispatch) => {
     const body = JSON.stringify({ email, password, passwordVerify });
     try {
-        const res = await api.post(REACT_APP_WEB_API_PATH + '/auth', body);
+        const res = await api.post('/auth', body);
         dispatch({
             type: LOGIN_SUCCESS,
             payload: {
@@ -52,7 +50,8 @@ export const register = (email, password, passwordVerify, history) => async (dis
     }
 };
 
-export const logout = () => (dispatch) => {
+export const logout = () => async (dispatch) => {
+    await api.get('/auth/logout');
     dispatch({
         type: LOGOUT,
     });

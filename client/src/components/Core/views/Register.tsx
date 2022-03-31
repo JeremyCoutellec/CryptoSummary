@@ -93,12 +93,11 @@ const Register = ({ register, isAuthenticated }) => {
                         label={t('user.attributes.passwordVerify')}
                         type="password"
                         id="passwordVerify"
-                        autoComplete="current-passwordVerify"
                         onChange={onChangeDefault(formData, setFormData)}
                         inputProps={{
                             minLength: 6,
                         }}
-                        value={password}
+                        value={passwordVerify}
                     />
                     <Button
                         type="submit"

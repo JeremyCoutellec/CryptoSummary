@@ -3,13 +3,11 @@ import axios, { AxiosRequestConfig } from 'axios';
 import last from 'lodash/last';
 import split from 'lodash/split';
 import isEqual from 'lodash/isEqual';
-import startsWith from 'lodash/startsWith';
-import replace from 'lodash/replace';
 import includes from 'lodash/includes';
 
 export const uriToId = (uri) => last(split(uri, '/'));
 
-const { REACT_APP_WEB_API_URL, REACT_APP_WEB_API_PATH, REACT_APP_WEB_TIMEOUT, REACT_APP_WEB_MAX_CONCURRENT_REQUEST } = process.env;
+const { REACT_APP_WEB_API_URL, REACT_APP_WEB_TIMEOUT, REACT_APP_WEB_MAX_CONCURRENT_REQUEST } = process.env;
 
 const MAX_CONCURRENT_REQUESTS = parseInt(REACT_APP_WEB_MAX_CONCURRENT_REQUEST) ?? 6;
 const INTERVAL_MS = 10;
@@ -19,6 +17,8 @@ export const setPendingRequest = (value) => (PENDING_REQUESTS = value);
 
 // API use axios
 const api = axios.create();
+
+api.defaults.withCredentials = true;
 
 /**
  * Intercept all the request to add url of the env.
@@ -32,8 +32,6 @@ api.interceptors.request.use(
          * Add the REACT_APP_WEB_API_PATH url if needed
          * Change this if the app use more than one api
          */
-        config.url = replace(config.url, REACT_APP_WEB_API_URL, '');
-        if (!startsWith(config.url, REACT_APP_WEB_API_PATH)) config.url = REACT_APP_WEB_API_PATH + config.url;
         config.url = REACT_APP_WEB_API_URL + config.url;
 
         /**
@@ -63,8 +61,10 @@ api.interceptors.request.use(
                         refreshToken ||
                         includes(
                             [
-                                REACT_APP_WEB_API_URL + REACT_APP_WEB_API_PATH + '/connexion/refresh',
-                                REACT_APP_WEB_API_URL + REACT_APP_WEB_API_PATH + '/connexion',
+                                `${REACT_APP_WEB_API_URL}/auth/refresh`,
+                                `${REACT_APP_WEB_API_URL}/auth/login`,
+                                `${REACT_APP_WEB_API_URL}/auth/logout`,
+                                `${REACT_APP_WEB_API_URL}/auth`,
                             ],
                             config.url
                         )
@@ -97,7 +97,7 @@ api.interceptors.response.use(
             originalRequest._retry = true;
             // Call the refresh token to get a new accessToken
             return axios
-                .post(REACT_APP_WEB_API_PATH + '/connexion/refresh', {
+                .post(REACT_APP_WEB_API_URL + '/auth/refresh', {
                     refresh_token: refreshToken,
                 })
                 .then((res) => {
