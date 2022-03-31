@@ -7,13 +7,12 @@ import reportWebVitals from './reportWebVitals';
 import App from './App';
 
 // Css
-import './css/theme.css';
+import './css/CryptoSummary.css';
+
+const container = document.getElementById('root'); // Make sure root id is defined on /public/index.html
 
 // First render of React component name App
-ReactDOM.render(
-    <App />,
-    document.getElementById('root') // Make sure root id is defined on /public/index.html
-);
+ReactDOM.render(<App />, container);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

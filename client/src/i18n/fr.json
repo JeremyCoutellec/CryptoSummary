@@ -5,6 +5,7 @@
             "Utilisateurs"
         ],
         "attributes": {
+            "passwordVerify": "Confirmer votre mot de passe",
             "password": "Mot de passe",
             "email": "Identifiant de connexion",
             "roles": "Rôles",
@@ -53,281 +54,6 @@
         },
         "logo": "person"
     },
-    "group": {
-        "entityName": [
-            "Groupe",
-            "Groupes"
-        ],
-        "attributes": {
-            "roles": "Rôles"
-        },
-        "constants": {},
-        "list": {
-            "notFound": "Aucun groupe trouvé"
-        },
-        "title": {
-            "show": "Groupe {{name}}",
-            "add": "Ajout d'un groupe",
-            "edit": "Modification du groupe {{name}}",
-            "list": "Liste des groupes"
-        },
-        "link": {
-            "add": "Ajouter un groupe",
-            "edit": "Modifier le groupe",
-            "remove": "Supprimer le groupe",
-            "backToList": "Afficher la liste des groupes"
-        },
-        "success": {
-            "add": "Groupe créé",
-            "update": "Groupe modifié",
-            "remove": "Groupe supprimé"
-        },
-        "logo": "group"
-    },
-    "company": {
-        "entityName": [
-            "Société",
-            "Sociétés"
-        ],
-        "attributes": {
-            "salt": "Salt",
-            "owner": "Propriétaire",
-            "children": "Sociétés filles",
-            "parent": "Société mère",
-            "offices": "Bureaux",
-            "referentCompany": "Société référente",
-            "state": "Etat",
-            "logo": "Logo",
-            "schedule": "Planning",
-            "alertMessage": "Message d'alerte",
-            "colorPrimary": "Couleur primaire",
-            "colorSecondary": "Couleur secondaire",
-            "colorTop": "Couleur en haut",
-            "colorBottom": "Couleur en bas",
-            "rgpdQVT": "Partage données QVT",
-            "staffRgpdQVTDiff": "Staff en contradiction",
-            "rgpdMaterial": "Partage données Matériel",
-            "staffRgpdMaterialDiff": "Staff en contradiction"
-        },
-        "constants": {
-            "logo": "Logo de la société",
-            "status.agent": "Agent",
-            "status.customer": "Client",
-            "status.other": "Autre",
-            "state.prospect": "En prospection",
-            "state.active": "Active",
-            "state.closed": "Fermée",
-            "state.liquidation": "Liquidation",
-            "state.fenced": "Clôturée",
-            "state.litigation": "Litige"
-        },
-        "rgpdUse": "Défini par la société",
-        "group": {
-            "company": "Liens sociétés",
-            "confidentiality": "Confidentialité"
-        },
-        "list": {
-            "notFound": "Aucune société trouvée"
-        },
-        "title": {
-            "show": "Société {{name}}",
-            "add": "Ajout d'une société",
-            "edit": "Modification de la société {{name}}",
-            "list": "Liste des sociétés"
-        },
-        "link": {
-            "add": "Ajouter une société",
-            "edit": "Modifier la société",
-            "backToList": "Afficher la liste des sociétés",
-            "remove": "Supprimer une société",
-            "disable": "Désactiver la société",
-            "enable": "Activer la société"
-        },
-        "success": {
-            "add": "Société créée",
-            "update": "Société modifiée",
-            "remove": "Société supprimée",
-            "disable": "Société désactivée",
-            "enable": "Société activée"
-        },
-        "logo": "businessCenter"
-    },
-    "staff": {
-        "entityName": [
-            "Collaborateur",
-            "Collaborateurs"
-        ],
-        "attributes": {
-            "matricule": "Matricule",
-            "internalReference": "Rérérence interne",
-            "firstname": "Prénom",
-            "dateStartContract": "Date début de contrat",
-            "dateEndContract": "Date fin de contrat",
-            "defaultBusinessUnit": "Service par défaut",
-            "function": "Fonction",
-            "avatar": "Avatar",
-            "timezone": "Fuseau horaire",
-            "location": "Localisation"
-        },
-        "constants": {
-            "status.1": "En ligne",
-            "status.2": "Hors ligne",
-            "status.3": "En pause",
-            "status.4": "Occupé"
-        },
-        "group": {
-            "user": "Utilisateur",
-            "company": "Société",
-            "infos": "Informations",
-            "address": "Adresse",
-            "contact": "Contact",
-            "roles": "Rôles"
-        },
-        "list": {
-            "notFound": "Aucun collaborateur trouvé",
-            "byCompany": "Collaborateurs de la société {{companyName}}"
-        },
-        "title": {
-            "show": "{{firstname}} {{name}}",
-            "add": "Ajout d'un collaborateur",
-            "edit": "Modification du collaborateur {{firstname}} {{name}}",
-            "list": "Liste des collaborateurs"
-        },
-        "link": {
-            "add": "Ajouter un collaborateur",
-            "edit": "Modifier le collaborateur",
-            "backToList": "Afficher la liste des collaborateurs",
-            "remove": "Supprimer un collaborateur",
-            "disable": "Désactiver le collaborateur",
-            "enable": "Activer le collaborateur",
-            "profile": "Votre Profil",
-            "changeStatus": "Mettre à jour mon statut"
-        },
-        "success": {
-            "add": "Collaborateur créé",
-            "update": "Collaborateur modifié",
-            "remove": "Collaborateur supprimé",
-            "disable": "Collaborateur désactivé",
-            "enable": "Collaborateur activé"
-        },
-        "modal": {
-            "disable": "Retirer l’accès à la plateforme",
-            "enable": "Donner l’accès à la plateforme",
-            "status": {
-                "title": "Modification du collaborateur {{firstname}} {{name}}",
-                "description": "Modification du statut et de la localisation.",
-                "button": "Mettre à jour le statut"
-            }
-        },
-        "logo": "person"
-    },
-    "office": {
-        "entityName": [
-            "Bureau",
-            "Bureaux"
-        ],
-        "attributes": {},
-        "constants": {
-            "type.office": "Bureau",
-            "type.warehouse": "Entrepôt"
-        },
-        "title": {
-            "show": "Bureau {{name}}",
-            "add": "Ajout d'un bureau",
-            "edit": "Modification du bureau {{name}}",
-            "list": "Liste des bureaux"
-        },
-        "list": {
-            "notFound": "Aucun bureau trouvé"
-        },
-        "link": {
-            "add": "Ajouter un bureau",
-            "edit": "Modifier le bureau",
-            "backToList": "Afficher la liste des bureaux",
-            "remove": "Supprimer un bureau",
-            "disable": "Désactiver le bureau",
-            "enable": "Activer le bureau"
-        },
-        "success": {
-            "add": "Bureau créé",
-            "update": "Bureau modifié",
-            "remove": "Bureau supprimé",
-            "disable": "Bureau désactivé",
-            "enable": "Bureau activé"
-        },
-        "logo": "business"
-    },
-    "division": {
-        "entityName": [
-            "Division",
-            "Divisions"
-        ],
-        "attributes": {},
-        "constants": {},
-        "title": {
-            "show": "Division {{name}}",
-            "add": "Ajout d'un division",
-            "edit": "Modification du division {{name}}",
-            "list": "Liste des divisions"
-        },
-        "list": {
-            "notFound": "Aucune division trouvée"
-        },
-        "link": {
-            "add": "Ajouter une division",
-            "edit": "Modifier la division",
-            "backToList": "Afficher la liste des divisions",
-            "remove": "Supprimer une division",
-            "disable": "Désactiver la division",
-            "enable": "Activer la division"
-        },
-        "success": {
-            "add": "Division créée",
-            "update": "Division modifiée",
-            "remove": "Division supprimée",
-            "disable": "Division désactivée",
-            "enable": "Division activée"
-        },
-        "logo": "people"
-    },
-    "businessUnit": {
-        "entityName": [
-            "Service",
-            "Services"
-        ],
-        "attributes": {
-            "managers": "Managers"
-        },
-        "constants": {},
-        "title": {
-            "show": "Service {{name}}",
-            "add": "Ajout d'un service",
-            "edit": "Modification du service {{name}}",
-            "list": "Liste des services"
-        },
-        "list": {
-            "notFound": "Aucun service trouvé"
-        },
-        "link": {
-            "add": "Ajouter un service",
-            "edit": "Modifier le service",
-            "backToList": "Afficher la liste des services",
-            "remove": "Supprimer un service",
-            "disable": "Désactiver le service",
-            "enable": "Activer le service"
-        },
-        "success": {
-            "add": "Service créé",
-            "update": "Service modifié",
-            "remove": "Service supprimé",
-            "disable": "Service désactivé",
-            "enable": "Service activé"
-        },
-        "logo": "person",
-        "group": {
-            "staffs": "Collaborateur"
-        }
-    },
     "mediaObject": {
         "entityName": [
             "Média",
@@ -353,136 +79,6 @@
             "remove": "Média supprimé"
         },
         "logo": "perm_media"
-    },
-    "document": {
-        "entityName": [
-            "Document",
-            "Documents"
-        ],
-        "attributes": {
-            "title": "Titre",
-            "file": "Fichier",
-            "isNeedValidation": "A besoin d'une validation",
-            "validatedByStaff": "Validé ou lu?"
-        },
-        "constants": {
-            "type.factSheets": "Fiches",
-            "type.advice": "Conseils",
-            "type.charters": "Chartes"
-        },
-        "title": {
-            "show": "Document {{name}}",
-            "add": "Ajout d'un document",
-            "edit": "Modification du document {{name}}",
-            "list": "Liste des documents"
-        },
-        "list": {
-            "notFound": "Aucun document trouvé",
-            "byStaff": "Documents du collaborateur {{staffName}}",
-            "documentValidated": "Ressources documentaires",
-            "documentManager": "Ressources documentaires de mon équipe"
-        },
-        "link": {
-            "add": "Ajouter un document",
-            "edit": "Modifier le document",
-            "remove": "Supprimer le document",
-            "validate": "Valider le document",
-            "backToList": "Afficher la liste des documents"
-        },
-        "success": {
-            "add": "Document créé",
-            "update": "Document modifié",
-            "remove": "Document supprimé",
-            "validate": "Document validé"
-        },
-        "logo": "description",
-        "validationModal": {
-            "title": "Validation du document",
-            "description": "Veuillez renseigner un commentaire.",
-            "readAndValidate": "J'ai lu et je valide ce document"
-        },
-        "notificationModal": {
-            "title": "Nouveau document à votre disposition",
-            "description": "Veuillez renseigner un commentaire.",
-            "close": "Fermer"
-        },
-        "group": {
-            "validations": "Validations"
-        }
-    },
-    "validation": {
-        "entityName": [
-            "Validation",
-            "Validations"
-        ],
-        "attributes": {
-            "title": "Titre",
-            "isValidated": "Est validé ?",
-            "readDate": "Date de lecture"
-        },
-        "constants": {},
-        "title": {
-            "show": "Validation {{name}}",
-            "add": "Ajout d'une validation",
-            "edit": "Modification de la validation {{name}}",
-            "list": "Liste des validations"
-        },
-        "list": {
-            "notFound": "Aucune validation trouvée"
-        },
-        "link": {
-            "add": "Ajouter une validation",
-            "edit": "Modifier la validation",
-            "backToList": "Afficher la liste des validations"
-        },
-        "success": {
-            "add": "Validation créée",
-            "update": "Validation modifiée"
-        },
-        "logo": "done_all"
-    },
-    "notification": {
-        "entityName": [
-            "Notification",
-            "Notifications"
-        ],
-        "attributes": {
-            "receiver": "Destinataire",
-            "subject": "Collaborateur concerné",
-            "priority": "Priorité",
-            "title": "Titre",
-            "content": "Contenu",
-            "uri": "Lien",
-            "readAt": "Date de lecture",
-            "triggerer": "Déclencheur"
-        },
-        "constants": {},
-        "list": {
-            "notFound": "Aucune notification trouvée"
-        },
-        "title": {
-            "show": "Notification {{ename}}",
-            "add": "Ajout d'une notification",
-            "edit": "Modification de la notification {{name}}",
-            "list": "Liste des notifications"
-        },
-        "link": {
-            "show": "Voir la notification",
-            "add": "Ajouter une notification",
-            "edit": "Modifier la notification",
-            "backToList": "Afficher la liste des notifications",
-            "remove": "Supprimer la notification",
-            "disable": "Désactiver la notification",
-            "enable": "Activer la notification"
-        },
-        "success": {
-            "add": "Notification créée",
-            "update": "Notification modifiée",
-            "remove": "Notification supprimée",
-            "disable": "Notification désactivée",
-            "enable": "Notification activée"
-        },
-        "logo": "notification"
     },
     "common": {
         "attributes": {
@@ -540,6 +136,9 @@
         "edit": "Modifier",
         "logout": "Déconnexion",
         "login": "Connexion",
+        "isRegister": "Vous avez déjà un compte? Connectez vous.",
+        "isNotRegister": "Vous n'avez pas de compte? Inscrivez vous.",
+        "register": "S'inscrire",
         "rememberMe": "Se souvenir de moi",
         "save": "Enregistrer",
         "copy": "Copier",
@@ -701,21 +300,14 @@
     "menu": {
         "link": {
             "main": {
-                "dashboard": "Tableau de bord",
-                "validatedDocuments": "Ressources documentaires"
+                "dashboard": "Tableau de bord"
             },
             "parameters": "Paramètres",
             "adminInterface": "Interface Admin",
-            "manager": {
-                "dashboard": "Tableau de bord",
-                "document": "Ressources documentaires",
-                "staffs": "Mon équipe"
-            },
             "typography": "Typographie"
         },
         "bandeau": {
-            "configuration": "Configuration",
-            "manager": "Manager"
+            "configuration": "Configuration"
         }
     }
 }

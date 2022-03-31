@@ -8,6 +8,7 @@ import NotFoundPage from './NotFoundPage';
 import Alert from '../components/Core/views/Alert';
 import Login from '../components/Core/views/Login';
 import TypoShow from '../components/Core/views/TypoShow';
+import Register from '../components/Core/views/Register';
 
 // Components
 
@@ -24,6 +25,7 @@ const Routes = () => (
                 ---------- CORE BUNDLE ----------
             */}
             <Route exact path="/login" component={Login} />
+            <Route exact path="/register" component={Register} />
             <PrivateRoute exact path="/typography" component={TypoShow} />
 
             {/*

@@ -1,5 +1,5 @@
 import api, { uriToId } from '../../../utils/api';
-import { join, map, isArray, isString, get, size, head } from 'lodash';
+import { join, map, isArray, isString, size, head } from 'lodash';
 
 import { setAlert, setError } from '../../Core/actions/alert';
 import { REFRESH } from './types';
@@ -130,20 +130,7 @@ export const getAll =
     };
 
 export const createEntity =
-    (
-        path,
-        formData,
-        typeCreateEntity,
-        typeError,
-        titleSuccess,
-        history = null,
-        pathShow = null,
-        isShowModalActionCampaign = false,
-        filtersActionModal = {
-            filterCompanies: null,
-            filterDeviceModels: null,
-        }
-    ) =>
+    (path, formData, typeCreateEntity, typeError, titleSuccess, history = null, pathShow = null) =>
     async (dispatch) => {
         if (!path) return;
 
@@ -169,21 +156,7 @@ export const createEntity =
     };
 
 export const editEntity =
-    (
-        id,
-        path,
-        formData,
-        typeEditEntity,
-        typeError,
-        titleSuccess,
-        history = null,
-        pathShow = null,
-        isShowModalActionCampaign = false,
-        filtersActionModal = {
-            filterCompanies: null,
-            filterDeviceModels: null,
-        }
-    ) =>
+    (id, path, formData, typeEditEntity, typeError, titleSuccess, history = null, pathShow = null) =>
     async (dispatch) => {
         if (!path || !id) return;
 

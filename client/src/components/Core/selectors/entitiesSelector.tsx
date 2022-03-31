@@ -1,9 +1,9 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { find, isArray, filter, includes } from 'lodash';
 import { canReadEntity, canWriteEntity, canAllEntity } from '../../../utils/roles';
+import { getMediaObjectsSelector } from '../../MediaBundle/selectors/mediaObject';
 
 import { getUserAuthSelector } from './auth';
-import { getMediaObjectsSelector } from '../../MediaBundle/selectors/mediaObject';
 
 const selectSelf = (state) => state;
 

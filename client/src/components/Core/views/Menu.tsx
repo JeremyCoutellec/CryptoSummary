@@ -73,6 +73,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+//  eslint-disable-next-line @typescript-eslint/no-unused-vars
 const isActiveItem = ({ title, isManager = false, entity = null, entities = null }) => {
     // if the property entities is null
     // var entities is an array with one item ( entity )
@@ -85,7 +86,7 @@ const isActiveItem = ({ title, isManager = false, entity = null, entities = null
     });
     return isActive;
 };
-
+//  eslint-disable-next-line @typescript-eslint/no-unused-vars
 const BandeauMenu = ({ text }) => {
     const classes = useStyles();
     return (
@@ -99,6 +100,7 @@ const TextMenu = ({ text }) => {
     return <Typography variant="body2">{text}</Typography>;
 };
 
+//  eslint-disable-next-line @typescript-eslint/no-unused-vars
 const MainListItems = ({ user, title, handleDrawerClose, pin }) => {
     const classes = useStyles();
     const { t } = useTranslation();

@@ -1,49 +1,43 @@
-import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useHistory, Redirect } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { onChangeBoolean, onChangeDefault } from '../../../utils/onChangeInput';
+import { onChangeDefault } from '../../../utils/onChangeInput';
 
 // Redux
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { login, logout } from '../actions/auth';
+import { register } from '../actions/auth';
+import { getAuthSelector } from '../selectors/auth';
 
 // Material UI
-import TextField from '@mui/material/TextField';
 import Link from '@mui/material/Link';
+import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Container from '@mui/material/Container';
 
 // Public
 import logo from '../../../img/cryptoSummaryLogo.png';
-import { getAuthSelector } from '../selectors/auth';
 import Grid from '@mui/material/Grid';
 
-const Login = ({ login, logout, rememberMeStore, isAuthenticated }) => {
+const Register = ({ register, isAuthenticated }) => {
     const history = useHistory();
     const { t } = useTranslation();
     const [formData, setFormData] = useState({
         email: '',
         password: '',
-        rememberMe: rememberMeStore,
+        passwordVerify: '',
     });
-    const { email, password, rememberMe } = formData;
-
-    useEffect(() => {
-        if (isAuthenticated) logout();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    const { email, password, passwordVerify } = formData;
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        login(email, password, rememberMe, history);
+        register(email, password, passwordVerify, history);
     };
 
-    return !isAuthenticated ? (
+    if (isAuthenticated) return <Redirect to="/dashboard" />;
+
+    return (
         <Container component="main" maxWidth="xs">
             <CssBaseline />
             <div
@@ -56,7 +50,7 @@ const Login = ({ login, logout, rememberMeStore, isAuthenticated }) => {
             >
                 <img src={logo} alt="Logo Crypto Summary" />
                 <Typography component="h1" variant="h5">
-                    {t('common.login')}
+                    {t('common.register')}
                 </Typography>
                 <p className="my-1" />
                 <form className="form" onSubmit={(e) => onSubmit(e)}>
@@ -86,20 +80,25 @@ const Login = ({ login, logout, rememberMeStore, isAuthenticated }) => {
                         autoComplete="current-password"
                         onChange={onChangeDefault(formData, setFormData)}
                         inputProps={{
-                            minLength: 4,
+                            minLength: 6,
                         }}
                         value={password}
                     />
-                    <FormControlLabel
-                        control={
-                            <Checkbox
-                                name="rememberMe"
-                                defaultChecked={rememberMeStore}
-                                onChange={onChangeBoolean(formData, setFormData)}
-                                color="primary"
-                            />
-                        }
-                        label={t('common.rememberMe').toString()}
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        name="passwordVerify"
+                        label={t('user.attributes.passwordVerify')}
+                        type="password"
+                        id="passwordVerify"
+                        autoComplete="current-passwordVerify"
+                        onChange={onChangeDefault(formData, setFormData)}
+                        inputProps={{
+                            minLength: 6,
+                        }}
+                        value={password}
                     />
                     <Button
                         type="submit"
@@ -110,34 +109,24 @@ const Login = ({ login, logout, rememberMeStore, isAuthenticated }) => {
                             margin: '3rem, 0, 2rem',
                         }}
                     >
-                        {t('common.login')}
+                        {t('common.register')}
                     </Button>
                 </form>
                 <Grid container justifyContent="flex-end">
                     <Grid item>
-                        <Link href="/register" variant="body2">
-                            {t('common.isNotRegister')}
+                        <Link href="/login" variant="body2">
+                            {t('common.isRegister')}
                         </Link>
                     </Grid>
                 </Grid>
             </div>
         </Container>
-    ) : (
-        <div />
     );
-};
-
-Login.propTypes = {
-    login: PropTypes.func.isRequired,
-    logout: PropTypes.func.isRequired,
-    isAuthenticated: PropTypes.bool,
-    rememberMeStore: PropTypes.bool,
 };
 
 // eslint-disable-next-line no-undef
 const mapStateToProps = (state: never) => ({
     isAuthenticated: getAuthSelector(state)?.isAuthenticated,
-    rememberMeStore: getAuthSelector(state)?.rememberMe,
 });
 
-export default connect(mapStateToProps, { login, logout })(Login);
+export default connect(mapStateToProps, { register })(Register);

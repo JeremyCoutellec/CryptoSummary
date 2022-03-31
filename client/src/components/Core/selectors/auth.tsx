@@ -18,4 +18,3 @@ export const isAdmin = createSelector(getRolesSelector, (roles) => includes(role
 export const isManager = createSelector(getRolesSelector, (roles) => includes(roles, 'ROLE_MANAGER'));
 
 export const isSupervisor = createSelector(getRolesSelector, (roles) => includes(roles, 'ROLE_SUPERVISOR'));
-

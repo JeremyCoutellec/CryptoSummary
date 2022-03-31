@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 import { PENDING_REQUESTS } from '../utils/api';
 
