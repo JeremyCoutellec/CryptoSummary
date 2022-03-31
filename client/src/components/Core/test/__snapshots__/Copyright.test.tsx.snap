@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Copyright rendering 1`] = `
+<span
+  className="MuiTypography-root MuiTypography-caption MuiTypography-alignCenter css-1228yko-MuiTypography-root"
+>
+  ©  2021 
+  <a
+    className="color-white"
+    href="/"
+    onClick={[Function]}
+  >
+    CryptoSummary
+  </a>
+   v0.4.6.2
+</span>
+`;

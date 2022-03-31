@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Color rendering 1`] = `
+<div
+  aria-label="common.copied"
+  aria-labelledby={null}
+  className="makeStyles-colorDiv-1 makeStyles-colorDivDense-2"
+  data-mui-internal-clone-element={true}
+  onClick={[Function]}
+  onTouchStart={[Function]}
+  style={
+    Object {
+      "borderColor": "#ffffff",
+    }
+  }
+>
+  #ffffff
+</div>
+`;
