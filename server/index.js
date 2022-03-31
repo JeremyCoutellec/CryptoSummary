@@ -33,4 +33,4 @@ mongoose.connect(process.env.MDB_CONNECT, {
 
 // Set UP Routes
 app.use('/auth', require('./routers/userRouter'));
-app.use('/customer', require('./routers/customerRouter'));
+app.use('/stockTicker', require('./routers/stockTickerRouter'));
