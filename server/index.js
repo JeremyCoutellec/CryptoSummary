@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const { init } = require("./src/modules");
 
 dotenv.config();
 
@@ -32,5 +33,4 @@ mongoose.connect(process.env.MDB_CONNECT, {
 });
 
 // Set UP Routes
-app.use('/auth', require('./routers/userRouter'));
-app.use('/stockTicker', require('./routers/stockTickerRouter'));
+init(app);
