@@ -10,7 +10,6 @@ const {
   } = require("./service");
 const { handleValidation } = require("../../core/middlewares");
 const { validateRegistration, validateUsername } = require("./request");
-const { getTokenFromBearer } = require('../../utils/auth');
 
 const register = async (req, res, next) => {
     try {

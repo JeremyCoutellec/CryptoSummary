@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-const express = require("express");
+const router = require('express').Router();
 const { tryCreateUser, searchOne, getQuery, ModelName } = require("./service");
 const {
   getByIdHandler,
@@ -10,8 +10,6 @@ const {
 } = require("../../core/controller");
 const { validateUserUpdate, validateUserCreate } = require("./request");
 const { handleValidation } = require("../../core/middlewares");
-
-const router = express.Router();
 
 const saveHandler = async (req, res, next) => {
   try {

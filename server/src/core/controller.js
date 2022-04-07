@@ -17,7 +17,7 @@ const getByIdHandler = async (req, res, next) => {
     if (item) {
       return res.status(200).send(item);
     }
-    throw new NotFound(`${ModelName} not found by the id: ${id}`);
+    throw new Error(`${modelName} not found by the id: ${id}`);
   } catch (error) {
     return next(error, req, res);
   }
@@ -36,7 +36,7 @@ const searchHandler = async (req, res, next) => {
             ModelName
           )
         : await search(body, req.searchQuery, ModelName);
-    return res.status(200).send({ data, total: 0 });
+    return res.status(200).send({ data, total: data.length });
   } catch (error) {
     return next(error, req, res);
   }
@@ -81,7 +81,7 @@ const updateHandler = async (req, res, next) => {
 const deleteHandler = async (req, res, next) => {
   try {
     const ModelName = req.modelName;
-    const { id } = req.query;
+    const { id } = req.params;
     await deleteById(id, ModelName);
     return res
       .status(200)

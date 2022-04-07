@@ -30,7 +30,7 @@ const deleteById = async (id, modelName) => {
     eventEmitter.emit(`${modelName}Deleted`, model);
     return result;
   }
-  throw new Error(`Product not found by the id: ${id}`);
+  throw new Error(`${modelName} not found by the id: ${id}`);
 };
 
 const getById = async (id, modelName) => {

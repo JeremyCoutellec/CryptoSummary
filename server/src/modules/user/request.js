@@ -36,8 +36,8 @@ const validateUsername = (data) => {
 
 const userCreateSchema = Joi.object().keys({
   ...commonKeys,
-  roleId: Joi.string().required(),
-  roleAlias: Joi.string().min(4).max(15).required(),
+  roleId: Joi.string().optional(),
+  roleAlias: Joi.string().min(4).max(15).optional(),
 });
 
 const validateUserCreate = (data, requestor) => {
@@ -55,10 +55,10 @@ const userUpdateSchema = Joi.object().keys({
   firstName: Joi.string().min(3).max(30).required(),
   lastName: Joi.string().min(3).max(30).required(),
   address: Joi.string().min(3).max(30).optional(),
-  phoneNumber: Joi.string().min(5).max(15).required(),
+  phoneNumber: Joi.string().min(5).max(15).optional(),
   email: Joi.string().min(5).max(30).required(),
-  roleAlias: Joi.string().min(3).max(15).required(),
-  roleId: Joi.string().required(),
+  roleAlias: Joi.string().min(3).max(15).optional(),
+  roleId: Joi.string().optional(),
 });
 
 const validateUserUpdate = (data) => {
