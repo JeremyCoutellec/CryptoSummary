@@ -1,5 +1,4 @@
 const routes = require("./controller");
-const {init: initTickerType} = require("./tickerType");
 const { name: ModelName } = require("./model");
 
 const processRequest = async (req, res, next) => {
@@ -9,11 +8,10 @@ const processRequest = async (req, res, next) => {
 
 const init = async (app) => {
   app.use(
-    "/api/ticker",
+    "/api/ticker_type",
     processRequest,
     routes
   );
-  initTickerType(app);
   return app;
 };
 

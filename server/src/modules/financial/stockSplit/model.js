@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Ticker = require('../model');
+const Ticker = require('../../ticker/model');
 const Schema = mongoose.Schema;
 
 const stockSplitSchema = new Schema({

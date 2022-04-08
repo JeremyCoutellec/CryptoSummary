@@ -4,7 +4,7 @@ const eventEmitter = require("./eventManager").getInstance();
 const save = async (item, modelName) => {
   const model = new mongoose.models[modelName](item);
   const savedItem = await model.save();
-  eventEmitter.emit(`${modelName}Created`, savedItem);
+  eventEmitter.emit(`${modelName} Created`, savedItem);
   return savedItem;
 };
 
@@ -13,13 +13,13 @@ const update = async (item, modelName) => {
     { _id: item._id },
     item
   );
-  eventEmitter.emit(`${modelName}Updated`, doc);
+  eventEmitter.emit(`${modelName} Updated`, doc);
   return doc;
 };
 
 const updateAll = async (query, updateModel, modelName) => {
   const doc = await mongoose.models[modelName].updateMany(query, updateModel);
-  eventEmitter.emit(`${modelName}Updated`, doc);
+  eventEmitter.emit(`${modelName} Updated`, doc);
   return doc;
 };
 
@@ -27,7 +27,7 @@ const deleteById = async (id, modelName) => {
   const model = await mongoose.models[modelName].findById(id);
   if (model) {
     const result = await mongoose.models[modelName].deleteOne({ _id: id });
-    eventEmitter.emit(`${modelName}Deleted`, model);
+    eventEmitter.emit(`${modelName} Deleted`, model);
     return result;
   }
   throw new Error(`${modelName} not found by the id: ${id}`);

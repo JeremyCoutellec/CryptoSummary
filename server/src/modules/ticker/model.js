@@ -14,7 +14,8 @@ const tickerSchema = new Schema({
   },
   symbol: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   address:{
     type: mongoose.Schema.Types.ObjectId,
@@ -56,9 +57,6 @@ const tickerSchema = new Schema({
   },
   marketCap:{
     type: Number
-  },
-  phoneNumber:{
-    type: String
   },
   phoneNumber:{
     type: String

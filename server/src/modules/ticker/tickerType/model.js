@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-const AssetClassEnum = require('../../common/assetClassEnum');
-const LocaleEnum = require('../../common/localeEnum');
+const AssetClassEnum = require('../../../core/commonEnum/assetClassEnum');
+const LocaleEnum = require('../../../core/commonEnum/localeEnum');
 const Schema = mongoose.Schema;
 
 const tickerTypeSchema = new Schema({
@@ -10,7 +10,8 @@ const tickerTypeSchema = new Schema({
   },
   code: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   locale: {
     type: LocaleEnum,
@@ -22,4 +23,7 @@ const tickerTypeSchema = new Schema({
   },
 });
 
-module.exports = TickerType = mongoose.model("tickerType", tickerTypeSchema);
+const ModelName = "TickerType";
+const TickerType = mongoose.model(ModelName, tickerTypeSchema);
+
+module.exports = { Model: TickerType, name: ModelName };
