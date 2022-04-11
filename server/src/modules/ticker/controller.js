@@ -15,7 +15,7 @@ const { validate } = require("./request");
 const { handleValidation } = require("../../core/middlewares");
 const { Model: Ticker, name: modelNameTicker } = require('./model');
 const { Model: Address, name: modelNameAddress } = require('../../core/commonModels/addressModel');
-const { Model: TickerType, name: modelNameTickerType } = require('./tickerType/model');
+const { Model: TickerType } = require('./tickerType/model');
 
 const router = express.Router();
 
